@@ -2,6 +2,10 @@
 Thumbs.db
 ehthumbs.db
 
+*.opensdf
+
+*.sdf
+
 # Folder config file
 Desktop.ini
 

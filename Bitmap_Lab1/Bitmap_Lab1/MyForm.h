@@ -34,17 +34,13 @@ namespace Project1 {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::PictureBox^  pictureBox1;
-			 Graphics^g;
-			 Bitmap^ bmp = gcnew
-				 Bitmap("updatedgraphics/notclickedredo.png");
-
-
-
-	private: System::ComponentModel::BackgroundWorker^  backgroundWorker1;
 	private: System::Windows::Forms::Button^  button1;
-	private: System::Windows::Forms::Button^  button2;
 	protected:
+	private: System::Windows::Forms::Button^  button2;
+
+			 Graphics^g;
+			 Bitmap^ bmp = gcnew Bitmap("Graphics/dog.bmp");
+	private: System::Windows::Forms::PictureBox^  pictureBox1;
 
 	private:
 		/// <summary>
@@ -59,50 +55,48 @@ namespace Project1 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			this->backgroundWorker1 = (gcnew System::ComponentModel::BackgroundWorker());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// pictureBox1
-			// 
-			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(0, 0);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(467, 502);
-			this->pictureBox1->TabIndex = 0;
-			this->pictureBox1->TabStop = false;
-			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(604, 12);
+			this->button1->Location = System::Drawing::Point(488, 234);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(87, 37);
-			this->button1->TabIndex = 1;
+			this->button1->Size = System::Drawing::Size(75, 46);
+			this->button1->TabIndex = 0;
 			this->button1->Text = L"Show";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(604, 109);
+			this->button2->Location = System::Drawing::Point(607, 234);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(87, 38);
-			this->button2->TabIndex = 2;
+			this->button2->Size = System::Drawing::Size(75, 50);
+			this->button2->TabIndex = 1;
 			this->button2->Text = L"Hide";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->Location = System::Drawing::Point(12, 12);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(421, 439);
+			this->pictureBox1->TabIndex = 2;
+			this->pictureBox1->TabStop = false;
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(703, 503);
+			this->ClientSize = System::Drawing::Size(704, 517);
+			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
-			this->Controls->Add(this->pictureBox1);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
@@ -114,9 +108,15 @@ namespace Project1 {
 	private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
 				 g = pictureBox1->CreateGraphics();
 	}
-
-
+			 
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 				 g->DrawImage(bmp, 0, 0);
-};
+
+	}
+
+	private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+				 pictureBox1->Image = nullptr;
+
+	}
+	};
 }

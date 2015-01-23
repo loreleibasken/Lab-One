@@ -14,8 +14,8 @@
     <ProjectGuid>{D9DE65A6-2922-4A95-8CCE-19CBA313AC01}</ProjectGuid>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <Keyword>ManagedCProj</Keyword>
-    <RootNamespace>First_Lab</RootNamespace>
-    <ProjectName>First_Lab</ProjectName>
+    <RootNamespace>Bitmap_Lab1</RootNamespace>
+    <ProjectName>Bitmap_Lab1</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
